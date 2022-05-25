@@ -1166,7 +1166,7 @@ mpn_get_str_bits (unsigned char *sp, unsigned bits, mp_srcptr up, mp_size_t un)
   mp_size_t i;
   int shift;
 
-  sn = ((un - 1) * GMP_LIMB_BITS + mpn_limb_size_in_base_2 (up[un-1])
+  sn = (((__int64)un - 1) * GMP_LIMB_BITS + mpn_limb_size_in_base_2 (up[un-1])
 	+ bits - 1) / bits;
 
   mask = (1U << bits) - 1;
@@ -1534,7 +1534,7 @@ mpz_getlimbn (const mpz_t u, mp_size_t n)
 void
 mpz_realloc2 (mpz_t x, mp_bitcnt_t n)
 {
-  mpz_realloc (x, 1 + (n - (n != 0)) / GMP_LIMB_BITS);
+  mpz_realloc (x, 1 + ((__int64)n - (n != 0)) / GMP_LIMB_BITS);
 }
 
 mp_srcptr
@@ -4339,7 +4339,7 @@ mpz_export (void *r, size_t *countp, int order, size_t size, int endian,
 	k++; limb >>= CHAR_BIT;
       } while (limb != 0);
 
-      count = (k + (un-1) * sizeof (mp_limb_t) + size - 1) / size;
+      count = (k + ((__int64)un-1) * sizeof (mp_limb_t) + size - 1) / size;
 
       if (!r)
 	r = gmp_xalloc (count * size);

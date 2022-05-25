@@ -18,6 +18,9 @@
     <ClInclude Include="mini-gmp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DLLMode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mini-gmp.c">

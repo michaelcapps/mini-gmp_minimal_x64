@@ -40,6 +40,7 @@ see https://www.gnu.org/licenses/.  */
 
 /* For size_t */
 #include <stddef.h>
+#include "DLLMode.h"
 
 #if defined (__cplusplus)
 extern "C" {
@@ -115,9 +116,9 @@ mp_limb_t mpn_invert_3by2 (mp_limb_t, mp_limb_t);
 size_t mpn_get_str (unsigned char *, int, mp_ptr, mp_size_t);
 mp_size_t mpn_set_str (mp_ptr, const unsigned char *, size_t, int);
 
-void mpz_init (mpz_t);
+void MINIGMP_EXPORTS_API mpz_init (mpz_t);
 void mpz_init2 (mpz_t, mp_bitcnt_t);
-void mpz_clear (mpz_t);
+void MINIGMP_EXPORTS_API mpz_clear (mpz_t);
 
 #define mpz_odd_p(z)   (((z)->_mp_size != 0) & (int) (z)->_mp_d[0])
 #define mpz_even_p(z)  (! mpz_odd_p (z))
@@ -206,7 +207,7 @@ int mpz_perfect_square_p (const mpz_t);
 
 void mpz_pow_ui (mpz_t, const mpz_t, unsigned long);
 void mpz_ui_pow_ui (mpz_t, unsigned long, unsigned long);
-void mpz_powm (mpz_t, const mpz_t, const mpz_t, const mpz_t);
+void MINIGMP_EXPORTS_API mpz_powm (mpz_t, const mpz_t, const mpz_t, const mpz_t);
 void mpz_powm_ui (mpz_t, const mpz_t, unsigned long, const mpz_t);
 
 void mpz_rootrem (mpz_t, mpz_t, const mpz_t, unsigned long);
@@ -260,8 +261,8 @@ void mpz_init_set (mpz_t, const mpz_t);
 void mpz_init_set_d (mpz_t, double);
 
 size_t mpz_sizeinbase (const mpz_t, int);
-char *mpz_get_str (char *, int, const mpz_t);
-int mpz_set_str (mpz_t, const char *, int);
+char MINIGMP_EXPORTS_API *mpz_get_str (char *, int, const mpz_t);
+int MINIGMP_EXPORTS_API mpz_set_str (mpz_t, const char *, int);
 int mpz_init_set_str (mpz_t, const char *, int);
 
 /* This long list taken from gmp.h. */
@@ -285,8 +286,8 @@ int mpz_init_set_str (mpz_t, const char *, int);
 size_t mpz_out_str (FILE *, int, const mpz_t);
 #endif
 
-void mpz_import (mpz_t, size_t, int, size_t, int, size_t, const void *);
-void *mpz_export (void *, size_t *, int, size_t, int, size_t, const mpz_t);
+void MINIGMP_EXPORTS_API mpz_import (mpz_t, size_t, int, size_t, int, size_t, const void *);
+void MINIGMP_EXPORTS_API *mpz_export (void *, size_t *, int, size_t, int, size_t, const mpz_t);
 
 #if defined (__cplusplus)
 }
