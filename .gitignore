@@ -1,0 +1,6 @@
+#Each sub folder has its own .gitignore file
+#Please add ignored files in corresponding .gitignore files
+*.bak
+.vs/
+x64
+mini-gmp.vcxproj.user
